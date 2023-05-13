@@ -2,15 +2,24 @@
 <title>Register</title>
 {% endblock %} {% block body %}
 <div class="container">
-  <h3>Register</h3>
-  <form method="POST">
-    {% csrf_token %} {{ form.as_p}}
-    <div class="mt-3">
-      <button class="btn btn-primary" type="submit" name="button">
-        Register
-      </button>
-      <a href="{% url 'index' %}" class="btn btn-secondary">Cancel</a>
+  <h3 class="mt-3 mb-5 text-center">Register</h3>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <form method="POST">
+        {% csrf_token %} 
+        {% include 'bs5_form.html' with form=form %} 
+        {% comment %} here the form i rendered will the view form i.e. is in bs5_form.html page [valid form, error etc.]{% endcomment %}
+        <div class="mt-3">
+          <button class="btn btn-primary" type="submit" name="button">
+            Register
+          </button>
+          <a href="{% url 'index' %}" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+      </form>
     </div>
-  </form>
+    <div class="col-md-4"></div>
+  </div>
+  
 </div>
 {% endblock %}
