@@ -1,21 +1,16 @@
-{% extends 'base.html' %}
-
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>Register</title>
-{% endblock %}
-
-{% block body %}
+{% endblock %} {% block body %}
 <div class="container">
-    <h3>Register</h3>
-    <form method='POST'>
-        {% csrf_token %}
-        {{ form.as_p}}
-    </form>
+  <h3>Register</h3>
+  <form method="POST">
+    {% csrf_token %} {{ form.as_p}}
     <div class="mt-3">
-        <button class="btn btn-primary" type="submit" name="button">
-          Register
-        </button>
-        <a href="" class="btn btn-secondary">Cancel</a>
-      </div>
+      <button class="btn btn-primary" type="submit" name="button">
+        Register
+      </button>
+      <a href="{% url 'index' %}" class="btn btn-secondary">Cancel</a>
+    </div>
+  </form>
 </div>
 {% endblock %}
