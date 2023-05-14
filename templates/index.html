@@ -1,5 +1,9 @@
 {% extends 'base.html' %} {% block body %}
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+  <div class="container">
+    <a href="{% url 'index' %}" class="navbar-brand">djAuthentication</a>
+  </div>
+</nav>
 <div class="container">
   <div class="mt-2">
     {% if messages %}
@@ -22,7 +26,7 @@
   <div class="card mt-5">
     <div class="card-body text-center">
       <h1 class="mb-3 mt-4">Welcome</h1>
-      <a href="" class="btn btn-primary mb-4">Log In</a>
+      <a href="{% url 'login' %}" class="btn btn-primary mb-4">Log In</a>
       <a href="{% url 'register' %}" class="btn btn-outline-secondary mb-4">Register</a>
     </div>
   </div>
