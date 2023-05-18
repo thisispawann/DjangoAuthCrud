@@ -46,9 +46,9 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-3">
-      <form method="post" action="">
+      <form method="post" action="{% url 'create' %}">
       {% csrf_token %} 
-        <div class="mb-3">
+        <div class="mb-2">
           <label for="exampleInputPassword1" class="form-label">Name</label>
           <input
             type="text"
@@ -73,7 +73,6 @@
           <input
             type="text"
             class="form-control"
-            id="exampleInputPassword1"
             name="address"
           />
         </div>
@@ -92,12 +91,12 @@
           </tr>
         </thead>
         <tbody>
-          
+          {% for std in Student %}
           <tr>
-            <th scope="row">1</th>
-            <td>ram</td>
-            <td>ram@gmail.com</td>
-            <td>bharatpur</td>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{std.name}}</td>
+            <td>{{std.email}}</td>
+            <td>{{std.address}}</td>
             <td>
               <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
               <a href="" class="btn btn-outline-primary btn-sm"
@@ -105,7 +104,7 @@
               <a href="" class="btn btn-secondary btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
             </td>
           </tr>
-     
+          {% endfor %}
         </tbody>
       </table>
       </div>

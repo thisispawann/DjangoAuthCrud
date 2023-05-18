@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from crud.models import Student
 
 # Create your views here.
 def index(request):
@@ -25,6 +26,30 @@ def register(request):
 
 @login_required
 #Home
+# Fetching all data 
 def home(request):
-    return render(request, "home.html")
+    student = Student.objects.all()
+    context = {
+        'Student' : student
+    }
+    return render(request, "home.html", context)
 
+#create [C]
+def Create(request):
+    if request.method == 'POST':
+        print("inside the post method")
+        
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        address = request.POST.get("address")
+        
+        student = Student()
+        
+        student.name = name
+        student.email = email
+        student.address = address
+        
+        student.save()
+    else:
+        print("post method not working..")
+    return redirect('/home')
