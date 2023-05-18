@@ -37,7 +37,6 @@ def home(request):
 #create [C]
 def Create(request):
     if request.method == 'POST':
-        print("inside the post method")
         
         name = request.POST.get("name")
         email = request.POST.get("email")
@@ -52,4 +51,10 @@ def Create(request):
         student.save()
     else:
         print("post method not working..")
+    return redirect('/home')
+
+# Delete [D]
+def Delete(request, pk):
+    student = Student.objects.get(pk=pk)
+    student.delete()
     return redirect('/home')
