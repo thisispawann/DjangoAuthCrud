@@ -27,7 +27,8 @@
           >
             <div class="white-color hover-orange size-24px">
               <span>{{ user }}</span>
-              <i class="fa fa-user"></i>
+              <i class="fa fa-user"></i> 
+              {% comment %} <i class="fa fa-user-circle" aria-hidden="true"></i>  {% endcomment %}
             </div>
           </a>
           <div class="dropdown-menu dropdown-menu-end">
@@ -41,5 +42,74 @@
     </div>
   </div>
 </nav>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-3">
+      <form method="post" action="">
+      {% csrf_token %} 
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control" 
+            id="exampleInputPassword1"
+            name="name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Address</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputPassword1"
+            name="address"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="col-9">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">S.N.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th>Action(s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <th scope="row">1</th>
+            <td>ram</td>
+            <td>ram@gmail.com</td>
+            <td>bharatpur</td>
+            <td>
+              <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+              <a href="" class="btn btn-outline-primary btn-sm"
+                ><i class="fa fa-pen"></i> Update</a>
+              <a href="" class="btn btn-secondary btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
+            </td>
+          </tr>
+     
+        </tbody>
+      </table>
+      </div>
+  </div>
+</div>
 
 {% endblock %}
