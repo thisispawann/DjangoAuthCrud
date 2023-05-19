@@ -80,3 +80,11 @@ def Update(request, pk):
             'student' : student
         }
         return render(request, 'update.html', context)
+    
+#detail [D]
+def Detail(request, pk):
+    student = Student.objects.get(pk=pk)
+    context = {
+        'object' : student
+    }
+    return render(request, 'detail.html', context)

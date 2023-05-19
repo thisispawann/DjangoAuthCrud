@@ -13,4 +13,5 @@ urlpatterns = [
     path('create', views.Create, name='create'),
     path('delete/<int:pk>/', views.Delete, name='delete'),
     path('update/<int:pk>/', views.Update, name='update'),
+    path('detail/<int:pk>/', views.Detail, name='detail')
 ]
