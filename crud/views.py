@@ -58,3 +58,25 @@ def Delete(request, pk):
     student = Student.objects.get(pk=pk)
     student.delete()
     return redirect('/home')
+
+#update [U]
+def Update(request, pk):
+    student = Student.objects.get(pk=pk)
+    if request.method == 'POST':
+        print("inside the post method")
+
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        address = request.POST.get("address")
+
+        student.name  = name
+        student.email = email
+        student.address = address
+
+        student.save()
+        return redirect('/home')
+    else:
+        context = {
+            'student' : student
+        }
+        return render(request, 'update.html', context)

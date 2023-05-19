@@ -5,3 +5,4 @@ class Student(models.Model):
     name= models.CharField(max_length=50)
     email=models.EmailField()
     address=models.CharField(max_length=50)
+    
