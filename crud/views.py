@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from crud.models import Student
 
+
 # Create your views here.
 def index(request):
     return render(request, "index.html")
@@ -37,7 +38,6 @@ def home(request):
 #create [C]
 def Create(request):
     if request.method == 'POST':
-        
         name = request.POST.get("name")
         email = request.POST.get("email")
         address = request.POST.get("address")
